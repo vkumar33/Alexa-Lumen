@@ -1,0 +1,211 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "lumen test",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "GetnameIntent",
+          "slots": [
+            {
+              "name": "UserName",
+              "type": "AMAZON.Actor"
+            }
+          ],
+          "samples": [
+            "{UserName}",
+            "My name is {UserName}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "SlMlthreeaIntent",
+          "slots": [
+            {
+              "name": "score",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "My score is {score}"
+          ]
+        },
+        {
+          "name": "SlMltwoIntent",
+          "slots": [
+            {
+              "name": "Decision",
+              "type": "Decision"
+            }
+          ],
+          "samples": [
+            "Survey Completed"
+          ]
+        },
+        {
+          "name": "SlMltwoaIntent",
+          "slots": [
+            {
+              "name": "Result",
+              "type": "Decision"
+            }
+          ],
+          "samples": [
+            "{Result}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Repeat"
+              }
+            },
+            {
+              "name": {
+                "value": "Continue",
+                "synonyms": [
+                  "begin"
+                ]
+              }
+            }
+          ],
+          "name": "Decision"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "GetnameIntent",
+          "confirmationRequired": true,
+          "prompts": {
+            "confirmation": "Confirm.Intent.1119735543629"
+          },
+          "slots": [
+            {
+              "name": "UserName",
+              "type": "AMAZON.Actor",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        },
+        {
+          "name": "SlMlthreeaIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "score",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {},
+              "validations": [
+                {
+                  "type": "isLessThanOrEqualTo",
+                  "prompt": "Slot.Validation.163749572964.44081169366.1286586624290",
+                  "value": "10"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "SlMltwoIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "Decision",
+              "type": "Decision",
+              "elicitationRequired": false,
+              "confirmationRequired": false,
+              "prompts": {}
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Confirm.Intent.1119735543629",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Your name is {UserName} . Is that correct ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1119735543629.300283082713",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Hi - I am Lumen, your health coach. Before we get started, Can I please have your name."
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Intent.163749572964",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Is {score} your final score ?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.163749572964.44081169366",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Thank you for completing your PHQ-Nine and GAD-Seven surveys. I want to introduce myself, I am Lumen, your virtual coach. My role is to help you improve your emotional well-being. I will work with you on developing a positive approach to thinking about problems, building skills to effectively solve problems, and plan activities. We will have eight sessions together and will review your progress along the way. If this sounds good say continue or you can ask me to repeat. I am looking forward to working together. On a scale from one - not at all and ten - completely , how ready are you to get started. Start by saying my score is "
+          },
+          {
+            "type": "PlainText",
+            "value": "Thank you for completing your PHQ-Nine and GAD-Seven surveys. I want to introduce myself, I am Lumen, your virtual coach. My role is to help you improve your emotional well-being. I will work with you on developing a positive approach to thinking about problems, building skills to effectively solve problems, and plan activities. We will have eight sessions together and will review your progress along the way. If this sounds good say continue or you can ask me to repeat. On a scale from one, not at all and ten, completely, how ready are you to get started."
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.163749572964.44081169366.1286586624290",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Kindly rate between a scale of one to ten"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1093818175988.664274996915",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Thank you for completing your PHQ-Nine and GAD-Seven surveys. I want to introduce myself, I am Lumen, your virtual coach. My role is to help you improve your emotional well-being. I will work with you on developing a positive approach to thinking about problems, building skills to effectively solve problems, and plan activities. We will have eight sessions together and will review your progress along the way. If this sounds good say continue or you can ask me to repeat."
+          }
+        ]
+      }
+    ]
+  },
+  "version": "20"
+}
